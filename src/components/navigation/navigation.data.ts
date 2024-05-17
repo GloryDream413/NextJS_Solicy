@@ -17,4 +17,16 @@ export const navigations: Navigation[] = [
     label: 'Mentor',
     path: 'mentors', // '/mentors',
   },
+  {
+    label: 'Mentor',
+    path: 'mentors', // '/mentors',
+  },
+  {
+    label: 'Mentor',
+    path: 'mentors', // '/mentors',
+  },
+  {
+    label: 'Mentor',
+    path: 'mentors', // '/mentors',
+  },
 ]

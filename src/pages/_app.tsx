@@ -10,6 +10,8 @@ import 'slick-carousel/slick/slick.css'
 import '@/styles/globals.css'
 import '@/styles/react-slick.css'
 import { NextPageWithLayout } from '@/interfaces/layout'
+import { ThemeProvider } from 'next-themes'
+
 // import 'slick-carousel/slick/slick-theme.css'
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -27,17 +29,20 @@ const App: FC<AppPropsWithLayout> = (props: AppPropsWithLayout) => {
   const getLayout = Component.getLayout || ((page) => page)
 
   return (
-    <CacheProvider value={emotionCache}>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <title>React Coursespace</title>
-      </Head>
-      <MUIProvider>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        {getLayout(<Component {...pageProps} />)}
-      </MUIProvider>
-    </CacheProvider>
+    <ThemeProvider attribute="class">
+
+      <CacheProvider value={emotionCache}>
+        <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+          <title>Solicy</title>
+        </Head>
+        <MUIProvider>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          {getLayout(<Component {...pageProps} />)}
+        </MUIProvider>
+      </CacheProvider>
+    </ThemeProvider>
   )
 }
 

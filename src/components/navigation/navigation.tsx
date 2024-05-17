@@ -5,7 +5,7 @@ import { navigations } from './navigation.data'
 
 const Navigation: FC = () => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
+    <Box sx={{ display: 'flexF', flexDirection: { xs: 'column', md: 'row' } }}>
       {navigations.map(({ path: destination, label }) => (
         <Box
           component={ScrollLink}

@@ -7,15 +7,21 @@ import { Logo } from '@/components/logo'
 import { Navigation, AuthNavigation } from '@/components/navigation'
 import { useTheme } from '@mui/material/styles'
 import { Menu, Close } from '@mui/icons-material'
+import { useTheme as useNextTheme } from 'next-themes';
 
 const Header: FC = () => {
   const [visibleMenu, setVisibleMenu] = useState<boolean>(false)
   const { breakpoints } = useTheme()
+  const { theme, setTheme } = useNextTheme()
+
   const matchMobileView = useMediaQuery(breakpoints.down('md'))
 
   return (
-    <Box sx={{ backgroundColor: 'background.paper' }}>
-      <Container sx={{ py: { xs: 2, md: 3 } }}>
+    <Box sx={{ padding: '25px 0 18px' }}
+
+      className={`${theme === 'dark' ? 'bg-gradient-to-r from-[#132d5f] to-[#183874]' : 'bg-gradient-to-r from-blue-600 to-blue-900'}`}
+    >
+      <Container sx={{}}>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Logo />
           <Box sx={{ ml: 'auto', display: { xs: 'inline-flex', md: 'none' } }}>
@@ -45,7 +51,7 @@ const Header: FC = () => {
           >
             <Box /> {/* Magic space */}
             <Navigation />
-            <AuthNavigation />
+            {/* <AuthNavigation /> */}
             {visibleMenu && matchMobileView && (
               <IconButton
                 sx={{
